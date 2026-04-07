@@ -10,17 +10,25 @@ A Python library of common data structures frequently used in LeetCode problems,
 - 🧩 Easy to import and integrate into your solutions
 
 ## Installation
+- Go to the release page: [Release Page](https://github.com/Coder-ZZY/BasicDataStuctures/releases)
+- Download the `basicdatastructure-*.whl`
 
 ```bash
-pip install BasicDataStructure
+pip install /path/to/your/dowload/file/basicdatastructure-*.whl
 ```
 
 Or install from source:
 
 ```bash
-git clone https://github.com/your-username/BasicDataStructure.git
-cd BasicDataStructure
-pip install .
+git clone https://github.com/Coder-ZZY/BasicDataStuctures.git
+# install the package tool
+pip install build
+
+# just package the entire project
+python -m build
+
+# only generate the wheel file
+python -m build --wheel
 ```
 
 ## Data Structures Included
