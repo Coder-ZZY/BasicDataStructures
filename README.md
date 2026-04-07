@@ -36,7 +36,7 @@ python -m build --wheel
 | Category | Structures |
 |---|---|
 | **Linear** | Stack |
-| **Linked** | Singly Linked List |
+| **ListNode** | Singly Linked List |
 | **Tree** | Binary Tree |
 | **Heap** | Min Heap, Max Heap |
 | **Graph** | Graph |
@@ -52,13 +52,13 @@ stack = Stack()
 stack.push(1)
 stack.push(2)
 print(stack.pop())   # 2
-print(stack.peek())  # 1
+print(stack.top)  # 1
 
 # Heap (min by default)
 from BasicDataStructure import Heap
-
-min_heap = Heap()            # min heap by default
-max_heap = Heap(type="max")  # max heap
+a = [0, 1, 2]
+min_heap = Heap(a)            # min heap by default
+max_heap = Heap(a, type="max")  # max heap
 
 min_heap.push(3)
 min_heap.push(1)
@@ -92,17 +92,21 @@ print(trie.search("ap"))         # False
 stack = Stack()
 stack.push(val)       # Push element
 stack.pop()           # Pop and return top element
-stack.top          # Return top element without removing
+stack.top           # Return top element without removing
 stack.isEmpty()      # Return True if empty
 len(stack)            # Number of elements
 ```
 
 ### Heap
 ```python
+"""
+The Heap API is same to the official heap library, which only provides the min-heap: heapq(https://docs.pythonlang.cn/3/library/heapq.html)
+"""
 heap = Heap(type="min")   # type="min" (default) or type="max"
-heap.push(val)            # Insert element
-heap.pop()                # Remove and return min or max
-heap.peek()               # View min or max without removing
+heap.heappush(val)            # Insert element
+heap.heappop()                # Remove and return min or max
+heap.heapreplace(val) # Replace the top element of the heap with a new element.
+heap.heaptop # Get the top element of heap.
 len(heap)                 # Number of elements
 ```
 
@@ -126,17 +130,19 @@ trie.delete(word)           # Remove a word
 
 ### TreeNode
 ```python
-node = TreeNode(val)        # Create a tree node
-node.val                    # Node value
-node.left                   # Left child
-node.right                  # Right child
+a = [1, 2, 3]
+root = TreeNode.from_list(a)
+root.val                    # Root value
+root.left                   # Left child
+root.right                  # Right child
 ```
 
 ### ListNode
 ```python
-node = ListNode(val)        # Create a linked list node
-node.val                    # Node value
-node.next                   # Next node
+a = [1 ,2 ,3]
+head = ListNode.from_list(a)
+head.val                   # Head value
+head.next                  # Next node
 ```
 
 ## Use Cases (LeetCode Examples)
